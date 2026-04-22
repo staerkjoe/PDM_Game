@@ -414,7 +414,7 @@ function jsonpFetch(url) {
   const g = GAME_INFO[GAME];
   document.getElementById('week-info').textContent =
     `Week ${WEEK} · ${g.emoji} ${g.name} · ${MONTH}/${YEAR}`;
-  if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE')
+  if (APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxb5_5A9g-X41h2VFEuRk1fwLZeOjQC_l_iRRS7Cdsri2LiLeDZFTo3XcpDP1xijGNxtw/exec')
     document.getElementById('setup-notice').classList.remove('hidden');
   renderGame();
 })();
@@ -435,7 +435,7 @@ function renderGame() {
 
 // ── Submit & Leaderboard ──────────────────────────────────────
 async function submitScore(score) {
-  if (APPS_SCRIPT_URL !== 'YOUR_APPS_SCRIPT_URL_HERE') {
+  if (APPS_SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbxb5_5A9g-X41h2VFEuRk1fwLZeOjQC_l_iRRS7Cdsri2LiLeDZFTo3XcpDP1xijGNxtw/exec') {
     const name = playerName || 'Anonymous';
     const url  = `${APPS_SCRIPT_URL}?action=submit`
       + `&name=${encodeURIComponent(name)}&score=${score}`
@@ -463,7 +463,7 @@ function switchTab(tab) {
 
 async function loadLeaderboard(tab) {
   const el = document.getElementById('lb-content');
-  if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+  if (APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxb5_5A9g-X41h2VFEuRk1fwLZeOjQC_l_iRRS7Cdsri2LiLeDZFTo3XcpDP1xijGNxtw/exec') {
     el.innerHTML = '<div class="lb-empty">Connect Google Sheets to see the shared leaderboard.</div>'; return;
   }
   el.innerHTML = '<div class="loading">Loading…</div>';
@@ -692,7 +692,7 @@ async function runnerEnd() {
   }
 
   // Auto-submit to backend (backend keeps highest)
-  if (APPS_SCRIPT_URL !== 'YOUR_APPS_SCRIPT_URL_HERE') {
+  if (APPS_SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbxb5_5A9g-X41h2VFEuRk1fwLZeOjQC_l_iRRS7Cdsri2LiLeDZFTo3XcpDP1xijGNxtw/exec') {
     const name = playerName || 'Anonymous';
     const url  = `${APPS_SCRIPT_URL}?action=submit`
       + `&name=${encodeURIComponent(name)}&score=${pts}`
